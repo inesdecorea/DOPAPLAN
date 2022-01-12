@@ -9,6 +9,7 @@ import futuregoal from '../icons/futuregoal.png';
 import share from '../icons/share.png';
 
 export default function MainPage() {
+  console.disableYellowBox=true;
   return (
       <ScrollView style={styles.display01}>
       
