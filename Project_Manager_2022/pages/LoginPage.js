@@ -3,6 +3,7 @@ import { StyleSheet, Image, Text, View, TouchableOpacity} from 'react-native';
 import startpagelogo from '../image/startpagelogo.png';
 
 export default function LoginPage() {
+    console.disableYellowBox=true;
     return (
 
         <View style={styles.LoginMain}>
