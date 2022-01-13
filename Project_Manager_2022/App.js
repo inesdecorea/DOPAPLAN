@@ -9,10 +9,10 @@ import SharePage from './pages/SharePage';
 
 export default function App(){
     //return(<LoginPage/>)
-    //return(<MainPage/>)
+    return(<MainPage/>)
    //return (<AchievedPage/>)
    //return (<DelayedPage/>)
    //return(<FuturegoalPage/>)
-    return(<SharePage/>)
+    //return(<SharePage/>)
 }
 

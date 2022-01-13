@@ -1,8 +1,8 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Image, Text, View, ScrollView, TouchableOpacity } from 'react-native';
-import LogoHorizon from '../image/LogoHorizon.png';
-import main from '../icons/main.png';
+import LogoHorizon from '../images/LogoHorizon.png';
+import main from '../icons/main.png'; 
 import goal from '../icons/goal.png';
 import delay from '../icons/delay.png';
 import futuregoal from '../icons/futuregoal.png';
