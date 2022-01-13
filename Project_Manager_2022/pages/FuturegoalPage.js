@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
-import bulb from '../image/bulb.gif'
+import bulb from '../images/bulb.gif'
 
 export default function FuturegoalPage(){
     console.disableYellowBox=true;

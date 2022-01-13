@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Image, Text, View, TouchableOpacity} from 'react-native';
-import startpagelogo from '../image/startpagelogo.png';
+import startpagelogo from '../images/startpagelogo.png';
 
 export default function LoginPage() {
     console.disableYellowBox=true;

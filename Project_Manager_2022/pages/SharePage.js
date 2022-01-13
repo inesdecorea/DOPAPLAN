@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
-import like from '../image/like.gif'
+import like from '../images/like.gif'
 
 export default function SharePage(){
     console.disableYellowBox=true;

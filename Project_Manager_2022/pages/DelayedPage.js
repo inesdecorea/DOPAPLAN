@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
-import hourglass from '../image/hourglass.gif'
+import hourglass from '../images/hourglass.gif'
 
 export default function DelayedPage(){
     console.disableYellowBox=true;
