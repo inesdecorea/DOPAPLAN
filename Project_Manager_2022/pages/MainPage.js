@@ -1,18 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Image, Text, View, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Image, Text, View, ScrollView, TouchableOpacity} from 'react-native';
 import LogoHorizon from '../images/LogoHorizon.png';
-import main from '../icons/main.png'; 
-import goal from '../icons/goal.png';
-import delay from '../icons/delay.png';
-import futuregoal from '../icons/futuregoal.png';
-import share from '../icons/share.png';
+import main from '../images/main.png'; 
+import goal from '../images/goal.png';
+import delay from '../images/delay.png';
+import futuregoal from '../images/futuregoal.png';
+import share from '../images/share.png';
+import {navigation} from '@react-navigation/native';
 
-export default function MainPage() {
+
+
+
+export default function MainPage({navigation, route}) {
   console.disableYellowBox=true;
+
   return (
-      <ScrollView style={styles.display01}>
-      
+
+  
+  <ScrollView style={styles.display01}>    
       <View style={styles.logopart}>
         <Image style={styles.mainlogo} source={LogoHorizon}></Image>
         <Text style={styles.Hi01}>안녕하세요, 도파루파님!</Text>
@@ -28,17 +34,19 @@ export default function MainPage() {
      
         <ScrollView style={styles.display00} horizontal indicatorStyle>
       <View style={styles.FirstBox}>
-        <TouchableOpacity style={styles.box01}><Image style={styles.Imagegoal} source={goal}></Image><View style={styles.textgoal}><Text style={styles.FourBoxtext}>달성한{"\n"}프로젝트</Text></View></TouchableOpacity>
-        <TouchableOpacity style={styles.box02}><Image style={styles.Imagedelay} source={delay}></Image><View style={styles.textdelay}><Text style={styles.FourBoxtext}>미룬{"\n"}프로젝트</Text></View></TouchableOpacity>
-        <TouchableOpacity style={styles.box03}><Image style={styles.Imagefuturegoal} source={futuregoal}></Image><View style={styles.textfuturegoal}><Text style={styles.FourBoxtext}>미래의{"\n"}프로젝트</Text></View></TouchableOpacity>
-        <TouchableOpacity style={styles.box04}><Image style={styles.Imageshare} source={share}></Image><View style={styles.textshare}><Text style={styles.FourBoxtext}>프로젝트{"\n"}공유하기</Text></View></TouchableOpacity>
+        <TouchableOpacity style={styles.box01} onPress={()=>{navigation.navigate("AchievedPage")}}><Image style={styles.Imagegoal} source={goal}></Image><View style={styles.textgoal}><Text style={styles.FourBoxtext}>달성한{"\n"}프로젝트</Text></View></TouchableOpacity>
+        <TouchableOpacity style={styles.box02} onPress={()=>{navigation.navigate("DelayedPage")}}><Image style={styles.Imagedelay} source={delay}></Image><View style={styles.textdelay}><Text style={styles.FourBoxtext}>미룬{"\n"}프로젝트</Text></View></TouchableOpacity>
+        <TouchableOpacity style={styles.box03} onPress={()=>{navigation.navigate("FuturegoalPage")}}><Image style={styles.Imagefuturegoal} source={futuregoal}></Image><View style={styles.textfuturegoal}><Text style={styles.FourBoxtext}>미래의{"\n"}프로젝트</Text></View></TouchableOpacity>
+        <TouchableOpacity style={styles.box04} onPress={()=>{navigation.navigate("SharedPage")}}><Image style={styles.Imageshare} source={share}></Image><View style={styles.textshare}><Text style={styles.FourBoxtext}>프로젝트{"\n"}공유하기</Text></View></TouchableOpacity>
         </View>
         </ScrollView>
       <Text style={styles.made}>Designed by Doparupa{"\n"}Instagram @euphoria_sumin / Twitter @Doparupa_</Text>
     </ScrollView>
-  
+
   );
 }
+
+
 
 const styles = StyleSheet.create({
   
