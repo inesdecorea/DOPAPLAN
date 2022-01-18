@@ -8,6 +8,8 @@ import delay from '../images/delay.png';
 import futuregoal from '../images/futuregoal.png';
 import share from '../images/share.png';
 import {navigation} from '@react-navigation/native';
+import DateFunc from '../functions/DateFunc';
+import Calendar from '../component/Calendar';
 
 
 
@@ -22,15 +24,14 @@ export default function MainPage({navigation, route}) {
       <View style={styles.logopart}>
         <Image style={styles.mainlogo} source={LogoHorizon}></Image>
         <Text style={styles.Hi01}>안녕하세요, 도파루파님!</Text>
-        <Text style={styles.Hi02}>Project Manager Dopaplan은 {"\n"}도파루파님이 목표를 이루시는 그날까지 함께합니다!</Text>
+        <Text style={styles.Hi02}>Project Manager Dopaplan은 {"\n"}도파루파님이 목표를 이루시는 그날까지 함께합니다!</Text>  
       </View>
-        
-        
         <TouchableOpacity style={styles.projectGoButton01}><Image style={styles.MainImage} source={main}></Image>
         <View style={styles.textBox01}>
-          <Text style={styles.ButtonText01}>현재 진행중인 프로젝트 목록</Text>
+          <Text style={styles.ButtonText01}><DateFunc/>{"\n"}진행중인 프로젝트 목록</Text>
           </View>
         </TouchableOpacity> 
+        <Calendar/>
      
         <ScrollView style={styles.display00} horizontal indicatorStyle>
       <View style={styles.FirstBox}>
@@ -39,7 +40,7 @@ export default function MainPage({navigation, route}) {
         <TouchableOpacity style={styles.box03} onPress={()=>{navigation.navigate("FuturegoalPage")}}><Image style={styles.Imagefuturegoal} source={futuregoal}></Image><View style={styles.textfuturegoal}><Text style={styles.FourBoxtext}>미래의{"\n"}프로젝트</Text></View></TouchableOpacity>
         <TouchableOpacity style={styles.box04} onPress={()=>{navigation.navigate("SharedPage")}}><Image style={styles.Imageshare} source={share}></Image><View style={styles.textshare}><Text style={styles.FourBoxtext}>프로젝트{"\n"}공유하기</Text></View></TouchableOpacity>
         </View>
-        </ScrollView>
+        </ScrollView>   
       <Text style={styles.made}>Designed by Doparupa{"\n"}Instagram @euphoria_sumin / Twitter @Doparupa_</Text>
     </ScrollView>
 
@@ -58,7 +59,6 @@ const styles = StyleSheet.create({
     width: 200,
     height: 60,
     marginLeft: 20,
-    marginTop:50
   },
 
   Hi01:{
@@ -77,30 +77,31 @@ const styles = StyleSheet.create({
   },
 
   projectGoButton01:{
-    flex:1,
     borderColor:"#8B00FF",
-    borderWidth: 0.5,
+    borderWidth: 1,
     borderRadius: 20,
-    margin: 20,
+    marginTop:15,
+    marginBottom:10,
+    marginLeft:20,
+    marginRight:20,
+    padding: 3,
     flexDirection:"row",
   },
 
   MainImage:{
    width: 64,
    height: 64,
-   marginLeft: 30, 
-   marginTop: 10,
-   marginBottom: 10,
-   padding: 5
+   marginLeft: 15, 
+   marginTop: 20,
+   marginBottom: 20
   },
 
   ButtonText01:{
     
-    fontSize: 21,
-    fontWeight:"600",
-    padding: 10,
+    fontSize: 22,
+    fontWeight:"500",
     textAlign: "center",
-    marginTop: 20
+    marginTop: 20,
   },
 
 
@@ -113,7 +114,7 @@ const styles = StyleSheet.create({
 
   box01:{
     flex: 1,
-    marginLeft:20,
+    marginLeft:5,
     marginTop:5,
     flexDirection:"column"
   },
@@ -131,7 +132,7 @@ const styles = StyleSheet.create({
   textgoal:{
     fontSize: 20,
     marginLeft:15,
-    fontWeight:"600",
+    fontWeight:"500",
     textAlign: "center",
     flex:4
   },
@@ -157,7 +158,7 @@ const styles = StyleSheet.create({
   textdelay:{
     fontSize: 20,
     marginLeft:15,
-    fontWeight:"600",
+    fontWeight:"500",
     textAlign: "center",
     flex:4
   },
@@ -183,7 +184,7 @@ const styles = StyleSheet.create({
   textfuturegoal:{
     fontSize: 20,
     marginLeft:15,
-    fontWeight:"600",
+    fontWeight:"500",
     textAlign: "center",
     flex:4
   },
@@ -208,14 +209,14 @@ const styles = StyleSheet.create({
   textshare:{
     fontSize: 20,
     marginLeft:15,
-    fontWeight:"600",
+    fontWeight:"500",
     textAlign: "center",
     flex:4
   },
 
   FourBoxtext:{
     fontSize: 20,
-    fontWeight:"600",
+    fontWeight:"500",
     padding: 5,
     textAlign: "center",
     marginRight: 10,
