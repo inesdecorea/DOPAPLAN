@@ -1,9 +1,12 @@
 import React from 'react';
-import {  StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import {  StyleSheet, View, Image, ScrollView } from 'react-native';
 import checkskyblue from '../images/checkskyblue.gif';
 
 export default function AchievedPage(){
     console.disableYellowBox=true;
+
+
+
     return(
       <ScrollView style={styles.displayAchieved}>
         <View>

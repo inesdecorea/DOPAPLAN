@@ -17,6 +17,7 @@ import Calendar from '../component/Calendar';
 export default function MainPage({navigation, route}) {
   console.disableYellowBox=true;
 
+
   return (
 
   
@@ -26,7 +27,7 @@ export default function MainPage({navigation, route}) {
         <Text style={styles.Hi01}>안녕하세요, 도파루파님!</Text>
         <Text style={styles.Hi02}>Project Manager Dopaplan은 {"\n"}도파루파님이 목표를 이루시는 그날까지 함께합니다!</Text>  
       </View>
-        <TouchableOpacity style={styles.projectGoButton01}><Image style={styles.MainImage} source={main}></Image>
+        <TouchableOpacity style={styles.projectGoButton01}  onPress={()=>{navigation.navigate("InProgressPage")}}><Image style={styles.MainImage} source={main}></Image>
         <View style={styles.textBox01}>
           <Text style={styles.ButtonText01}><DateFunc/>{"\n"}진행중인 프로젝트 목록</Text>
           </View>
