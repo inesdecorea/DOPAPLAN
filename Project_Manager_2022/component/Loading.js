@@ -14,6 +14,10 @@ const styles = StyleSheet.create({
         marginTop: 320,
         width: 250,
         height: 250
+    },
+
+    container:{
+        backgroundColor:"white"
     }
 
 })

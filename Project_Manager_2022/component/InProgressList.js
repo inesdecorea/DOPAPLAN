@@ -1,8 +1,11 @@
 import React,{useState} from 'react';
-import {Text, StyleSheet, ScrollView, View, Alert} from 'react-native';
+import {Text, StyleSheet, ScrollView, View,  KeyboardAvoidingView, Platform} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Counter from '../component/Counter';
 import data from '../DB/data.json';
+import AppTodo from '../component/AddTodo';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 
 export default function InProgressList() {
@@ -12,12 +15,13 @@ export default function InProgressList() {
 
     let goal = data.goal;
     return(
+      <SafeAreaProvider>
     <ScrollView style={styles.ListLine} horizontal indicatorStyle>
         { 
           goal.map((content,i)=> { 
             return (
 
-                
+              <KeyboardAwareScrollView style={styles.avoid} extraScrollHeight={-150}>    
             <View style={styles.list} key={i}>
               <View style={styles.ListText}>
               <Text style={styles.ListTitle} numberOfLines={1}>{content.title}</Text>
@@ -37,16 +41,18 @@ export default function InProgressList() {
               <View style={styles.TouchaArea}>
               <Counter count={count} onIncrease={onIncrease}/><Text style={styles.LevelFive} numberOfLines={1}>{content.Big5}</Text>
               </View>
-              <TouchableOpacity style={styles.PlusGoal} onPress={()=>{Alert.alert("새로운 하위목표를 추가할까요?")}}>
-              <Text style={styles.LevelFive} numberOfLines={1}>하위목표 추가하기</Text>
-              </TouchableOpacity>
+              
+              <AppTodo/>
 
               
               </View>
-            </View>)
+            </View>
+            </KeyboardAwareScrollView>
+            )
           })
          }
-      </ScrollView>)
+      </ScrollView>
+      </SafeAreaProvider>)
     }    
 
 
@@ -54,7 +60,9 @@ export default function InProgressList() {
 const styles = StyleSheet.create({
 ListLine:{
     backgroundColor: "white",
-    padding:10},
+    padding:10,
+  flexDirection: "row"
+},
 
 list:{
 backgroundColor: "white",
@@ -94,10 +102,6 @@ TouchaArea:{
     marginLeft: 10,
     marginRight:10,
     padding: 5
-},
-PlusGoal:{
-    textAlign:"center",
-    fontSize: 25
-
 }
-})
+}
+)

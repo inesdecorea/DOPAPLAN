@@ -1,12 +1,17 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, TouchableOpacity, StyleSheet, Image} from 'react-native';
+import check from '../images/check.png';
 
 
 function Counter({count, onIncrease}){
 
     return(
         <View style={styles.counterview}>
-            <TouchableOpacity><Text style={styles.buttontext} onPress={onIncrease}>달성👍{"\n"}Click Here!</Text></TouchableOpacity> 
+            <TouchableOpacity onPress={onIncrease}>
+            <View style={styles.ButtonPlus}>
+                <Image style={styles.ButtonImg} source={check}/>
+            </View>
+            </TouchableOpacity> 
         </View> 
         
     );
@@ -23,8 +28,19 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginTop: 5,
         marginBottom: 5,
-    }
+    },
+    ButtonImg:{
+        alignSelf: "flex-start",
+        width: 40,
+        height: 40,
+        marginVertical:3
 
-});
+},
+
+ButtonPlus:{
+    
+}
+}
+);
 
 export default Counter;
