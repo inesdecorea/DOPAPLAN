@@ -51,8 +51,7 @@ const styles = StyleSheet.create({
         color: "white",
         padding: 22,
         margin:50, 
-        textAlign: "center",
-        borderRadius: 20
+        textAlign: "center"
     },
 
 });

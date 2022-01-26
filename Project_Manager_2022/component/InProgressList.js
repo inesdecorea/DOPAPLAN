@@ -1,10 +1,10 @@
 import React,{useState} from 'react';
-import {Text, StyleSheet, ScrollView, View,  KeyboardAvoidingView, Platform} from 'react-native';
+import {Text, StyleSheet, ScrollView, View,  KeyboardAvoidingView, Platform, SafeAreaView} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Counter from '../component/Counter';
 import data from '../DB/data.json';
 import AppTodo from '../component/AddTodo';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 
@@ -15,8 +15,8 @@ export default function InProgressList() {
 
     let goal = data.goal;
     return(
-      <SafeAreaProvider>
-    <ScrollView style={styles.ListLine} horizontal indicatorStyle>
+      <SafeAreaView style={styles.colorBar}>
+    <ScrollView style={styles.ListLine}>
         { 
           goal.map((content,i)=> { 
             return (
@@ -52,28 +52,36 @@ export default function InProgressList() {
           })
          }
       </ScrollView>
-      </SafeAreaProvider>)
+      </SafeAreaView>)
     }    
 
 
 
 const styles = StyleSheet.create({
+
+  colorBar:{
+    backgroundColor: "white"
+  },
+
 ListLine:{
     backgroundColor: "white",
-    padding:10,
-  flexDirection: "row"
+  flexDirection: "row",
+  alignSelf:"center"
 },
 
 list:{
 backgroundColor: "white",
-marginLeft:15,
-marginRight:50
+marginLeft:10,
+marginRight:10,
+marginTop:15
 },
 
 ListTitle:{
     marginTop: 20,
-    fontSize: 25,
-    textAlign: "center"
+    fontSize: 22,
+    textAlign: "center",
+    marginLeft:10,
+    marginRight:10
 },
 CountingNumber: {
     fontSize: 20,
@@ -87,8 +95,9 @@ LevelFive: {
     fontSize: 17,
     color: "black",
     marginLeft: 10,
-    marginTop: 15,
-    marginBottom: 10
+    marginTop:20,
+    marginBottom:20,
+    textAlignVertical:"center"
 },
 
 TouchaArea:{
@@ -100,8 +109,7 @@ TouchaArea:{
     marginBottom:10,
     marginTop:10,
     marginLeft: 10,
-    marginRight:10,
-    padding: 5
+    marginRight:10
 }
 }
 )

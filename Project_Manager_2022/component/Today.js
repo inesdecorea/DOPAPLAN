@@ -20,15 +20,17 @@ function Today({date}){
 const styles = StyleSheet.create({
 
 DateBar:{
-    marginLeft: 10,
+    marginLeft: 15,
     marginTop: 10
 },
 
 DateText:{
-    fontSize: 18,
+    fontSize: 16,
     color: "black",
     fontWeight: "500",
-    textAlign:"center"
+    marginLeft:14,
+    marginRight:15,
+    marginTop: -10
 }
 });
 

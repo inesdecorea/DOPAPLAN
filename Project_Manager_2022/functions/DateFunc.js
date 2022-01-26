@@ -8,12 +8,13 @@ function DateFunc(){
     console.log(Todaynow);
 
     return (
-        <View>
+        <View style={styles.dateText}>
          <Today date={Todaynow}/>
         </View>
     );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+});
 
 export default DateFunc;

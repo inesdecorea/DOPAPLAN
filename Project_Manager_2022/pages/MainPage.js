@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Image, Text, View, ScrollView, TouchableOpacity} from 'react-native';
+import { StyleSheet, Image, Text, View, ScrollView, TouchableOpacity, SafeAreaView} from 'react-native';
 import LogoHorizon from '../images/LogoHorizon.png';
 import main from '../images/main.png'; 
 import goal from '../images/goal.png';
@@ -20,7 +20,7 @@ export default function MainPage({navigation, route}) {
 
   return (
 
-  
+  <SafeAreaView style={styles.colorBar}>
   <ScrollView style={styles.display01}>    
       <View style={styles.logopart}>
         <Image style={styles.mainlogo} source={LogoHorizon}></Image>
@@ -44,6 +44,7 @@ export default function MainPage({navigation, route}) {
         </ScrollView>   
       <Text style={styles.made}>Designed by Doparupa{"\n"}Instagram @euphoria_sumin / Twitter @Doparupa_</Text>
     </ScrollView>
+    </SafeAreaView>
 
   );
 }
@@ -51,6 +52,10 @@ export default function MainPage({navigation, route}) {
 
 
 const styles = StyleSheet.create({
+
+  colorBar:{
+    backgroundColor: "white"
+  },
   
   display01: {
     backgroundColor: "white"
@@ -93,18 +98,21 @@ const styles = StyleSheet.create({
    width: 64,
    height: 64,
    marginLeft: 15, 
-   marginTop: 20,
-   marginBottom: 20
+   marginTop: 15,
+   marginBottom: 15
   },
 
   ButtonText01:{
     
     fontSize: 22,
     fontWeight:"500",
-    textAlign: "center",
-    marginTop: 20,
+    textAlign:"center",
+    marginTop: 25,
+    marginLeft:-20,
+    marginBottom:15,
+    marginRight:-10,
+    lineHeight:22
   },
-
 
   //여기서부터는 4개의 메뉴 박스 스타일
 

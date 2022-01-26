@@ -33,12 +33,10 @@ const styles = StyleSheet.create({
         alignSelf: "flex-start",
         width: 40,
         height: 40,
-        marginVertical:3
+        marginLeft:10,
+        marginTop:10,
+        marginBottom:10,
 
-},
-
-ButtonPlus:{
-    
 }
 }
 );
