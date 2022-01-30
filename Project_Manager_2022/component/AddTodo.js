@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, TextInput, Image, TouchableOpacity, Alert} from 'react-native';
 import create from '../images/create.png';
+import data from '../DB/data.json';
 
 function AddTodo(){
 
@@ -11,11 +12,18 @@ function AddTodo(){
         keyboard.dismiss()
     };
 
+    const [todos, setTodos] = useState('');
+    const onInsert = text => {
+        const bigGoal = todos.length >0 ? Math.max(...todos.map(goal=>goal.index))+1:1;
+        const goal = data.goal        
+
+    }
+
 
     return (
         <View style={styles.InputBox}>
-            <TextInput placeholder='하위 목표를 입력하세요' style={styles.Input} value={text} onChangeText={setText}/>
-            <TouchableOpacity onPress={()=>{Alert.alert('시발 이거 어떻게 이미지 고정해')}} >
+            <TextInput placeholder='하위 목표를 입력하세요' style={styles.Input} value={text} onChangeText={setText} onSubmitEditing={onPress} returnKeyType="done"/>
+            <TouchableOpacity onPress={()=>{Alert.alert('때려치자')}} >
             <View style={styles.ButtonStyle} >
                 <Image style={styles.ButtonPlusImg} source={create} ></Image>
             </View>

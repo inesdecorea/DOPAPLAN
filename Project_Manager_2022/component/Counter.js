@@ -1,21 +1,30 @@
-import React from 'react';
+import React ,{useState} from 'react';
 import {View, TouchableOpacity, StyleSheet, Image} from 'react-native';
-import check from '../images/check.png';
+import check_blank from '../images/check_blank.png';
+import check_done from'../images/check_done.png';
+
 
 
 function Counter({count, onIncrease}){
 
+if(count>=1){
     return(
         <View style={styles.counterview}>
             <TouchableOpacity onPress={onIncrease}>
-            <View style={styles.ButtonPlus}>
-                <Image style={styles.ButtonImg} source={check}/>
+            <View style={styles.ButtonPlus} >
+                <Image style={styles.ButtonImg} nativeID='done' source={check_done}/>
             </View>
             </TouchableOpacity> 
         </View> 
-        
-    );
-}
+    )
+}{  return( <View style={styles.counterview}>
+<TouchableOpacity onPress={onIncrease}>
+<View style={styles.ButtonPlus} >
+    <Image style={styles.ButtonImg} nativeID='blank' source={check_blank}/>
+</View>
+</TouchableOpacity> 
+</View> )}}
+
 
 const styles = StyleSheet.create({
 

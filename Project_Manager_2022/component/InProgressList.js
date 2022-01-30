@@ -8,10 +8,12 @@ import AppTodo from '../component/AddTodo';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 
+
 export default function InProgressList() {
     const[count,setCount] = useState(0);
 
     const onIncrease = () => setCount(count +1);
+    
 
     let goal = data.goal;
     return(
@@ -33,7 +35,7 @@ export default function InProgressList() {
               <Counter count={count} onIncrease={onIncrease}/><Text style={styles.LevelFive} numberOfLines={1}>{content.Big2}</Text>
               </View>
               <View style={styles.TouchaArea}>
-              <Counter count={count} onIncrease={onIncrease}/><Text style={styles.LevelFive} numberOfLines={1}>{content.Big3}</Text>
+              <Counter count={count} onIncrease={onIncrease} /><Text style={styles.LevelFive} numberOfLines={1}>{content.Big3}</Text>
               </View>
               <View style={styles.TouchaArea}>
               <Counter count={count} onIncrease={onIncrease}/><Text style={styles.LevelFive} numberOfLines={1}>{content.Big4}</Text>
