@@ -44,8 +44,8 @@ const StackNavigator = () =>{
             <Stack.Screen name="DelayedPage" component={DelayedPage} options={{title: '미룬 프로젝트'}}/>
             <Stack.Screen name="FuturegoalPage" component={FuturegoalPage} options={{title: '미래의 프로젝트'}}/>
             <Stack.Screen name="SharedPage" component={SharedPage} options={{title: '프로젝트 공유하기'}}/>
-            <Stack.Screen name="InProgressPage" component={InProgressPage} options={{title: '현재 진행중인 프로젝트'}}/>
-            <Stack.Screen name="ProjectListPage" component={ProjectListPage} options={{title: '현재 진행중인 프로젝트 목록'}}/>
+            <Stack.Screen name="InProgressPage" component={InProgressPage} options={{title: '현재 진행중인 계획'}}/>
+            <Stack.Screen name="ProjectListPage" component={ProjectListPage} options={{title: '현재 진행중인 하위 계획'}}/>
         </Stack.Navigator>
     )
 }

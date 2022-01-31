@@ -25,21 +25,21 @@ export default function MainPage({navigation, route}) {
       <View style={styles.logopart}>
         <Image style={styles.mainlogo} source={LogoHorizon}></Image>
         <Text style={styles.Hi01}>안녕하세요, 도파루파님!</Text>
-        <Text style={styles.Hi02}>Project Manager Dopaplan은 {"\n"}도파루파님이 목표를 이루시는 그날까지 함께합니다!</Text>  
+        <Text style={styles.Hi02}>Plan Manager Dopaplan은 {"\n"}도파루파님이 목표를 이루시는 그날까지 함께합니다!</Text>  
       </View>
         <TouchableOpacity style={styles.projectGoButton01}  onPress={()=>{navigation.navigate("ProjectListPage")}}><Image style={styles.MainImage} source={main}></Image>
         <View style={styles.textBox01}>
-          <Text style={styles.ButtonText01}><DateFunc/>{"\n"}진행중인 프로젝트 목록</Text>
+          <Text style={styles.ButtonText01}><DateFunc/>{"\n"}진행중인 목표 목록</Text>
           </View>
         </TouchableOpacity> 
         <Calendar/>
      
         <ScrollView style={styles.display00} horizontal indicatorStyle>
       <View style={styles.FirstBox}>
-        <TouchableOpacity style={styles.box01} onPress={()=>{navigation.navigate("AchievedPage")}}><Image style={styles.Imagegoal} source={goal}></Image><View style={styles.textgoal}><Text style={styles.FourBoxtext}>달성한{"\n"}프로젝트</Text></View></TouchableOpacity>
-        <TouchableOpacity style={styles.box02} onPress={()=>{navigation.navigate("DelayedPage")}}><Image style={styles.Imagedelay} source={delay}></Image><View style={styles.textdelay}><Text style={styles.FourBoxtext}>미룬{"\n"}프로젝트</Text></View></TouchableOpacity>
-        <TouchableOpacity style={styles.box03} onPress={()=>{navigation.navigate("FuturegoalPage")}}><Image style={styles.Imagefuturegoal} source={futuregoal}></Image><View style={styles.textfuturegoal}><Text style={styles.FourBoxtext}>미래의{"\n"}프로젝트</Text></View></TouchableOpacity>
-        <TouchableOpacity style={styles.box04} onPress={()=>{navigation.navigate("SharedPage")}}><Image style={styles.Imageshare} source={share}></Image><View style={styles.textshare}><Text style={styles.FourBoxtext}>프로젝트{"\n"}공유하기</Text></View></TouchableOpacity>
+        <TouchableOpacity style={styles.box01} onPress={()=>{navigation.navigate("AchievedPage")}}><Image style={styles.Imagegoal} source={goal}></Image><View style={styles.textgoal}><Text style={styles.FourBoxtext}>달성한{"\n"}목표</Text></View></TouchableOpacity>
+        <TouchableOpacity style={styles.box02} onPress={()=>{navigation.navigate("DelayedPage")}}><Image style={styles.Imagedelay} source={delay}></Image><View style={styles.textdelay}><Text style={styles.FourBoxtext}>미룬{"\n"}목표</Text></View></TouchableOpacity>
+        <TouchableOpacity style={styles.box03} onPress={()=>{navigation.navigate("FuturegoalPage")}}><Image style={styles.Imagefuturegoal} source={futuregoal}></Image><View style={styles.textfuturegoal}><Text style={styles.FourBoxtext}>미래의{"\n"}목표</Text></View></TouchableOpacity>
+        <TouchableOpacity style={styles.box04} onPress={()=>{navigation.navigate("SharedPage")}}><Image style={styles.Imageshare} source={share}></Image><View style={styles.textshare}><Text style={styles.FourBoxtext}>목표{"\n"}공유하기</Text></View></TouchableOpacity>
         </View>
         </ScrollView>   
       <Text style={styles.made}>Designed by Doparupa{"\n"}Instagram @euphoria_sumin / Twitter @Doparupa_</Text>

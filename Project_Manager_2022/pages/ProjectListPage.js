@@ -20,7 +20,7 @@ export default function ProjectListPage({navigation, route}){
             <KeyboardAwareScrollView style={styles.avoid} extraScrollHeight={-150}>    
           <View style={styles.list} key={i}>
             <View style={styles.ListText}>
-           <TouchableOpacity onPress={()=>{navigation.navigate("InProgressPage")}}><Text style={styles.ListTitle} numberOfLines={1}>{content.title}</Text></TouchableOpacity>   
+           <TouchableOpacity onPress={()=>{navigation.navigate("InProgressPage",{index:content.index})}}><Text style={styles.ListTitle} numberOfLines={1}>{content.title}</Text></TouchableOpacity>   
             </View>
           </View>
           </KeyboardAwareScrollView>

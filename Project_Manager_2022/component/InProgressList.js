@@ -1,47 +1,51 @@
-import React,{useState} from 'react';
-import {Text, StyleSheet, ScrollView, View,  KeyboardAvoidingView, Platform, SafeAreaView} from 'react-native';
+import React,{useState, useEffect} from 'react';
+import {Text, StyleSheet, ScrollView, View, Image, SafeAreaView} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import Counter from '../component/Counter';
 import data from '../DB/data.json';
 import AppTodo from '../component/AddTodo';
+import check_blank from '../images/check_blank.png';
+import check_done from'../images/check_done.png';
 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 
 
-export default function InProgressList() {
-    const[count,setCount] = useState(0);
+export default function InProgressList({content}){
+  const[count,setCount] = useState(0);
+  const[state,setState] = useState([])
 
+  useEffect(()=>{
+    setState(data)},[])
     const onIncrease = () => setCount(count +1);
-    
 
-    let goal = data.goal;
+
     return(
       <SafeAreaView style={styles.colorBar}>
     <ScrollView style={styles.ListLine}>
-        { 
-          goal.map((content,i)=> { 
-            return (
-
               <KeyboardAwareScrollView style={styles.avoid} extraScrollHeight={-150}>    
-            <View style={styles.list} key={i}>
+            <View style={styles.list} content={content} key={state.index}>
               <View style={styles.ListText}>
-              <Text style={styles.ListTitle} numberOfLines={1}>{content.title}</Text>
+              <Text style={styles.ListTitle} numberOfLines={1}>{state.title}</Text>
               <Text style={styles.CountingNumber}>달성한 하위 목표: {count}</Text>
               <View style={styles.TouchaArea}>
-              <Counter count={count} onIncrease={onIncrease}/><Text style={styles.LevelFive} numberOfLines={1}>{content.Big1}</Text>
+              <TouchableOpacity count={count} onIncrease={onIncrease} onPress={onIncrease}>
+                <Image style={styles.check_blank} source={check_blank}></Image></TouchableOpacity><Text style={styles.LevelFive} numberOfLines={1}>{state.Big1}</Text>
               </View>
               <View style={styles.TouchaArea}>
-              <Counter count={count} onIncrease={onIncrease}/><Text style={styles.LevelFive} numberOfLines={1}>{content.Big2}</Text>
+              <TouchableOpacity count={count} onIncrease={onIncrease} onPress={onIncrease}>
+                <Image style={styles.check_blank} source={check_blank}></Image></TouchableOpacity><Text style={styles.LevelFive} numberOfLines={1}>{state.Big2}</Text>
               </View>
               <View style={styles.TouchaArea}>
-              <Counter count={count} onIncrease={onIncrease} /><Text style={styles.LevelFive} numberOfLines={1}>{content.Big3}</Text>
+              <TouchableOpacity count={count} onIncrease={onIncrease} onPress={onIncrease}>
+                <Image style={styles.check_blank} source={check_blank}></Image></TouchableOpacity><Text style={styles.LevelFive} numberOfLines={1}>{state.Big3}</Text>
               </View>
               <View style={styles.TouchaArea}>
-              <Counter count={count} onIncrease={onIncrease}/><Text style={styles.LevelFive} numberOfLines={1}>{content.Big4}</Text>
+              <TouchableOpacity count={count} onIncrease={onIncrease} onPress={onIncrease}>
+                <Image style={styles.check_blank} source={check_blank}></Image></TouchableOpacity><Text style={styles.LevelFive} numberOfLines={1}>{state.Big4}</Text>
               </View>
               <View style={styles.TouchaArea}>
-              <Counter count={count} onIncrease={onIncrease}/><Text style={styles.LevelFive} numberOfLines={1}>{content.Big5}</Text>
+              <TouchableOpacity count={count} onIncrease={onIncrease} onPress={onIncrease}>
+                <Image style={styles.check_blank} source={check_blank}></Image></TouchableOpacity><Text style={styles.LevelFive} numberOfLines={1}>{state.Big5}</Text>
               </View>
               
               <AppTodo/>
@@ -50,12 +54,9 @@ export default function InProgressList() {
               </View>
             </View>
             </KeyboardAwareScrollView>
-            )
-          })
-         }
       </ScrollView>
       </SafeAreaView>)
-    }    
+}
 
 
 
@@ -112,6 +113,24 @@ TouchaArea:{
     marginTop:10,
     marginLeft: 10,
     marginRight:10
+},
+check_blank:{
+  alignSelf: "flex-start",
+  width: 40,
+  height: 40,
+  marginLeft:10,
+  marginTop:10,
+  marginBottom:10,
+
+},
+check_done:{
+  alignSelf: "flex-start",
+  width: 40,
+  height: 40,
+  marginLeft:10,
+  marginTop:10,
+  marginBottom:10,
+
 }
 }
 )
