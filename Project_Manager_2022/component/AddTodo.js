@@ -59,8 +59,10 @@ const styles = StyleSheet.create({
         width: 55,
         height: 55,
         marginVertical:3,
-        right:-80,
-        position:"absolute"
+        right:-90,
+        marginRight: 10,
+        position:"absolute",
+        alignSelf:"flex-end"
 
     }
 });

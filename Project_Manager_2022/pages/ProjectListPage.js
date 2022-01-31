@@ -2,11 +2,10 @@ import React from 'react';
 import {Text, StyleSheet, ScrollView, View,  SafeAreaView} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import data from '../DB/data.json';
-import {navigation} from '@react-navigation/native';
-
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-export default function ProjectListPage({navigation, route}){
+export default function ProjectListPage({navigation}){
+
   let goal = data.goal;
 
   return(
@@ -18,9 +17,9 @@ export default function ProjectListPage({navigation, route}){
           return (
 
             <KeyboardAwareScrollView style={styles.avoid} extraScrollHeight={-150}>    
-          <View style={styles.list} key={i}>
+          <View style={styles.list} content={content} key={i}>
             <View style={styles.ListText}>
-           <TouchableOpacity onPress={()=>{navigation.navigate("InProgressPage",{index:content.index})}}><Text style={styles.ListTitle} numberOfLines={1}>{content.title}</Text></TouchableOpacity>   
+           <TouchableOpacity onPress={()=>{navigation.navigate('InProgressList',content)}}><Text style={styles.ListTitle} numberOfLines={1}>{content.title}</Text></TouchableOpacity>   
             </View>
           </View>
           </KeyboardAwareScrollView>

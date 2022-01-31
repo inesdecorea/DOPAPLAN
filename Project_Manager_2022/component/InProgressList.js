@@ -1,29 +1,42 @@
 import React,{useState, useEffect} from 'react';
-import {Text, StyleSheet, ScrollView, View, Image, SafeAreaView} from 'react-native';
+import {Text, StyleSheet, ScrollView, View, Image} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import data from '../DB/data.json';
 import AppTodo from '../component/AddTodo';
 import check_blank from '../images/check_blank.png';
-import check_done from'../images/check_done.png';
+
 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 
 
-export default function InProgressList({content}){
+export default function InProgressList({navigation, route}){
   const[count,setCount] = useState(0);
-  const[state,setState] = useState([])
+  const[state,setState] = useState( {
+
+    "index":"0",
+    "title":"첫번째 목표, Dopaplan Project 완성",
+    "Big1":"Notion에 기획안 작성하기",
+    "Big2":"화면 구성하고 이미지 모으기",
+    "Big3":"VSCode에 폴더 만들고 코딩하기",
+    "Big4":"Firebase DB로 Login 기능 넣기",
+    "Big5":"개발일지 작성"
+    
+});
 
   useEffect(()=>{
-    setState(data)},[])
+    setState(route.params),[]})
+
     const onIncrease = () => setCount(count +1);
 
 
     return(
-      <SafeAreaView style={styles.colorBar}>
+      
+
+      
     <ScrollView style={styles.ListLine}>
-              <KeyboardAwareScrollView style={styles.avoid} extraScrollHeight={-150}>    
-            <View style={styles.list} content={content} key={state.index}>
+              <KeyboardAwareScrollView style={styles.avoid} extraScrollHeight={30}>    
+            <View style={styles.list} state={state} key={state.index}>
               <View style={styles.ListText}>
               <Text style={styles.ListTitle} numberOfLines={1}>{state.title}</Text>
               <Text style={styles.CountingNumber}>달성한 하위 목표: {count}</Text>
@@ -55,8 +68,8 @@ export default function InProgressList({content}){
             </View>
             </KeyboardAwareScrollView>
       </ScrollView>
-      </SafeAreaView>)
-}
+    )
+    }
 
 
 
@@ -80,6 +93,7 @@ marginTop:15
 },
 
 ListTitle:{
+  backgroundColor: "white",
     marginTop: 20,
     fontSize: 22,
     textAlign: "center",
@@ -94,13 +108,16 @@ CountingNumber: {
 },
 
 LevelFive: {
-    textAlign: "center",
+  backgroundColor: "white",
+    textAlign:"left",
     fontSize: 17,
     color: "black",
     marginLeft: 10,
+    marginRight:10,
     marginTop:20,
     marginBottom:20,
-    textAlignVertical:"center"
+    textAlignVertical:"center",
+    width: 300
 },
 
 TouchaArea:{
@@ -131,6 +148,9 @@ check_done:{
   marginTop:10,
   marginBottom:10,
 
+},
+avoid:{
+  backgroundColor: "white"
 }
 }
 )
